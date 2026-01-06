@@ -5,6 +5,7 @@ import dotenv from 'dotenv'
 import authRoutes from './routes/auth.routes.js'
 import path from 'path'
 import {connectDB} from './lib/db.js'
+import cookieParser from 'cookie-parser'
 
 //environment variable configuration
 dotenv.config()
@@ -16,6 +17,7 @@ const app= express()
 
 //middlewares
 app.use(express.json())
+app.use(cookieParser())
 
 //Creating routes
 app.use('/api/auth',authRoutes)
