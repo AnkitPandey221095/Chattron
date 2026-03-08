@@ -7,6 +7,7 @@ import messageRoutes from './routes/messages.routes.js'
 import path from 'path'
 import {connectDB} from './lib/db.js'
 import cookieParser from 'cookie-parser'
+import cors from 'cors'
 
 //environment variable configuration
 dotenv.config()
@@ -15,9 +16,10 @@ const PORT = process.env.PORT || 3000
 // Starting web server
 const app= express()
 
-
+const allowedPort ="http://localhost:5173"
 //middlewares
 app.use(express.json())
+app.use(cors({origin:allowedPort,credentials:true}))
 app.use(cookieParser())
 
 //Creating routes

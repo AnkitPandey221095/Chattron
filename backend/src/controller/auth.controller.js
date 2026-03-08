@@ -86,7 +86,7 @@ export const login = async (req, res)=>{
         if (!user) return res.status(400).json({message:"Invalide email or password"})
 
         const isPasswordCorrect = await bcrypt.compare(password, user.password)
-        if(!isPasswordCorrect) return res.status(200).json({message:"Invalide useId or password"})
+        if(!isPasswordCorrect) return res.status(400).json({message:"Invalide useId or password"})
 
         generateToken(user._id,res)
 
@@ -98,7 +98,8 @@ export const login = async (req, res)=>{
         })
 
     }catch(err){
-        console.error("Error in the login controller: ", erroe)
+        console.error("Error in the login controller: ", err)
+        res.status(500).json({message:"Server error"})
     }
 }
 
