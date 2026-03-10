@@ -18,7 +18,7 @@ const app= express()
 
 const allowedPort ="http://localhost:5173"
 //middlewares
-app.use(express.json())
+app.use(express.json({limit:"2mb"}))
 app.use(cors({origin:allowedPort,credentials:true}))
 app.use(cookieParser())
 
