@@ -9,7 +9,7 @@ function GlassContainer({ children }) {
         bg-white/5 
         shadow-2xl 
         rounded-2xl 
-        h-[600px]
+        min-h-[600px]
         flex items-center justify-cente
       ">
         {children}
