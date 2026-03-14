@@ -6,17 +6,17 @@ Chattron demonstrates modern web development concepts such as real-time communic
 ---
 ## 📁 Project Look (UI)
 
-### Home Page
+### SignUp Interface
 
+<img width="1920" height="1080" alt="Image" src="https://github.com/user-attachments/assets/e725e130-5e83-4ab4-88c0-6995f4a4dda6" />
 
+### Login Interface
 
-### Adding new student data
+<img width="1920" height="1080" alt="Image" src="https://github.com/user-attachments/assets/1b2f7fc9-4bd4-4e95-9cf1-79655c6a4c09" />
 
+### Chat Interface
 
-
-### View details
-
-
+<img width="1920" height="1080" alt="Image" src="https://github.com/user-attachments/assets/93a8b94d-fbc3-4013-a268-316f2b192b9e" />
 ---
 
 ## 🧰 Tech Stack & Dependencies
