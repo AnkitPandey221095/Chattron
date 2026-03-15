@@ -2,9 +2,11 @@ import React, { useEffect } from 'react'
 import {useChatStore} from '../store/useChatStore'
 import UsersLoadingSkeleton from './UsersLoadingSkeleton.jsx'
 import NoChatsFound from './NoChatsFound.jsx'
+import {useAuthStore} from '../store/useAuthStore.js'
 
 const ChatsList = () => {
   const {getMyChatPartners, setSelectedUser, chats, isUserLoading} = useChatStore()
+  const {onlineUser} = useAuthStore()
 
   useEffect(()=>{
     getMyChatPartners( )
@@ -25,7 +27,7 @@ const ChatsList = () => {
           onClick={()=>setSelectedUser(chat)}>
             <div className='flex items-center gap-3'>
               {/* Online and Offline status setting using socketIo */}
-              <div className={`avatar avatar-online`}>
+              <div className={`avatar ${onlineUser.includes(chat._id) ? "avatar-online" : "avatar-offline"}`}>
                 <div className='size-12 rounded-full'>
                   <img src={chat.profilePic || "/avatar.png"} alt={chat.fullname} />
                 </div>
