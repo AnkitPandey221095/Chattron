@@ -8,18 +8,17 @@ import path from 'path'
 import {connectDB} from './lib/db.js'
 import cookieParser from 'cookie-parser'
 import cors from 'cors'
+import {app, server} from './lib/socketIO.js'
 
 //environment variable configuration
 dotenv.config()
 const PORT = process.env.PORT || 3000
 
 // Starting web server
-const app= express()
+// app or server is already build in socket middle ware
 
-const allowedPort ="http://localhost:5173"
 //middlewares
 app.use(express.json({limit:"2mb"}))
-app.use(cors({origin:allowedPort,credentials:true}))
 app.use(cookieParser())
 
 //Creating routes
@@ -37,7 +36,7 @@ if(process.env.NODE_ENV === 'production'){
 }
 
 // listing server
-app.listen(PORT, ()=>{
+server.listen(PORT, ()=>{
 console.log(`your server is running : http://localhost:${PORT}`)
 //Connecting to DataBase
 connectDB()
