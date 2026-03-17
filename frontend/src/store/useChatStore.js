@@ -85,6 +85,27 @@ export const useChatStore = create((set,get)=>({
             console.log("Error in sending message",err.message)
             toast.error(err?.response?.data?.message || "Somthing Went Wrong")
         }
+    },
+
+    subscribToMessages: ()=>{
+        const {selectedUser} = get()
+        if(!selectedUser) return
+
+        const socket = useAuthStore.getState().socket;
+
+        socket.on("newMessage", (newMessage)=>{
+
+            const isMessageFromSelectedUser = newMessage.senderId === selectedUser._id;
+            if(!isMessageFromSelectedUser) return
+
+            const currentMessage = get().messages
+            set({messages: [...currentMessage,newMessage]})
+        })
+    },
+
+    unsubscribToMessages:()=>{
+        const socket = useAuthStore.getState().socket;
+        socket.off("newMessage")
     }
 
 

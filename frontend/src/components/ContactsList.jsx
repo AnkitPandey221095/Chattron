@@ -25,7 +25,7 @@ const ContactsList = () => {
           onClick={()=>setSelectedUser(Contact)}>
             <div className='flex items-center gap-3'>
               {/* Online and Offline status setting using socketIo */}
-              <div className={`avatar avatar-online`}>
+              <div className={`avatar`}>
                 <div className='size-12 rounded-full'>
                   <img src={Contact.profilePic || "/avatar.png"} alt={Contact.fullname} />
                 </div>
