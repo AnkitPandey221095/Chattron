@@ -82,7 +82,8 @@ npm run dev
 
 ## 🌍 Live Demo
 
-👉 **[View Live Site Here](https://chattron-blond.vercel.app/login)**
+👉 **[View Live Site Here](https://chattron-blond.vercel.app/)**
+
 
 ## 🙌 Thanks for Checking It Out!
 
